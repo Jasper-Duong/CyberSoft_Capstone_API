@@ -107,14 +107,27 @@
   padding: 1.5625em 3.125em 1.5625em 3.125em;
   justify-content: space-between;
   flex-direction: row;
-  border-bottom: 1px solid white;
+  border-bottom: 0.0625em solid white;
 }
 .item-row {
   width: 10%;
   text-align: center;
 }
 .item-row .clear-product svg {
-  width: 15px;
+  width: 0.9375em;
+  fill: white;
+}
+.flus-minus .btn {
+  padding: 0.4em;
+  margin: 0.4em;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  text-align: center;
+}
+.item-row .btn svg {
+  width: 0.4375em;
+  height: 0.4375em;
   fill: white;
 }
 /* close sidebar */
