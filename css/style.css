@@ -121,7 +121,7 @@
   padding: 0.4em;
   margin: 0.4em;
   justify-content: center;
-  border: 1px solid white;
+  border: 0.0625em solid white;
   border-radius: 50%;
   text-align: center;
 }
@@ -135,8 +135,8 @@
   position: absolute;
   top: 1em;
   right: 1em;
-  width: 25px;
-  height: 25px;
+  width: 1.5625em;
+  height: 1.5625em;
   fill: white;
 }
 /* nav-input show sidebar */
@@ -149,6 +149,37 @@
 .nav_input:checked ~ .side-bar {
   transform: translateX(0%);
   opacity: 1;
+}
+
+/* sidebar btn */
+.btn-puschard,
+.btn-clear {
+  position: absolute;
+  bottom: 0.5em;
+  border: 0.0625em solid white;
+  padding: 0.5em 1.5em;
+  background-color: transparent;
+  align-items: center;
+  color: white;
+  border-radius: 0.625em;
+}
+.btn-puschard {
+  right: 10em;
+  font-size: 1.5em;
+}
+.btn-puschard svg {
+  padding-left: 0.625em;
+  width: 2.1875em;
+  fill: rgb(153, 30, 153);
+}
+.btn-clear {
+  right: 2.5em;
+  font-size: 1.5em;
+}
+.btn-clear svg {
+  padding-left: 0.625em;
+  width: 1.875em;
+  fill: red;
 }
 
 /* animation */
