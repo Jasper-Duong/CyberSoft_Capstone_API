@@ -35,11 +35,11 @@
             <div class="ml-auto d-flex align-items-center">
               <!-- select option -->
               <li>
-                <select name="" id="option-phone" class="option-phone">
+                <select name="" id="option-phone" class="option-phone" onchange="OnChangePhone(this)">
                   <option value="">Tìm kiếm</option>
-                  <!-- <option value="">Tất cả</option> -->
-                  <option value="">Iphone</option>
-                  <option value="">Samsung</option>
+                  <option value="all">Tất cả</option>
+                  <option value="Iphone">Iphone</option>
+                  <option value="Samsung">Samsung</option>
                 </select>
               </li>
               <!-- nav btn store -->
@@ -148,8 +148,8 @@
     </header>
     <!-- section -->
     <section class="middle-1">
-      <div class="middle-container">
-        <div id="listSP" class="row d-flex justify-content-center">
+      <div class="container">
+        <div id="listSP" class="row d-flex ">
           <!-- trans data -->
           <!-- <div class="card col-3">
             <img
