@@ -1,6 +1,15 @@
 let getEle = (id) => document.getElementById(id);
 export class Helper {
-  inpFields = ["name", "price", "screen", "backCam", "frontCam", "img", "desc"];
+  inpFields = [
+    "name",
+    "price",
+    "screen",
+    "backCam",
+    "frontCam",
+    "img",
+    "desc",
+    "type",
+  ];
   demo = [
     "iphone 13 Pro Max",
     "999",
@@ -9,6 +18,7 @@ export class Helper {
     "12 MP",
     "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-gold-1-600x600.jpg",
     "Thiết kế đẳng cấp hàng đầu",
+    "Iphone",
   ];
 
   getInputEle() {
