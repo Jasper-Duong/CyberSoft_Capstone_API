@@ -13,7 +13,7 @@ let renderList = () => {
       let content = "";
       result.data.forEach((ele, id) => {
         content += `
-        <tr>
+        <tr id="phone${ele.id}">
           <td>${id + 1}</td>
           <td>${ele.name}</td>
           <td>${ele.price}</td>
@@ -24,7 +24,7 @@ let renderList = () => {
           <td>
             <button class="btn btn-info" onclick="edit('${
               ele.id
-            }')">Sửa</button>
+            }')" data-toggle="modal" data-target="#myModal">Sửa</button>
             <button class="btn btn-danger" onclick="remove('${
               ele.id
             }')">Xoá</button>
@@ -49,9 +49,9 @@ getEle("btnAdd").onclick = () => {
   let phone = new Phone("", ...inputs);
   phoneList
     .addPhone(phone)
-    .then((result) => {
+    .then(() => {
       renderList();
-      document.querySelector('.close').click();
+      document.querySelector(".close").click();
     })
     .catch((error) => console.log(error));
 };
@@ -64,5 +64,38 @@ window.remove = (id) => {
 };
 
 window.edit = (id) => {
-  console.log(id);
+  getEle("btnUpdate").style.display = "inline-block";
+  getEle("btnAdd").style.display = "none";
+
+  phoneList
+    .getPhoneById(id)
+    .then((result) => {
+      let currentPhone = result.data;
+      let inputFields = helper.getInputEle();
+      inputFields[0].value = currentPhone.name;
+      inputFields[1].value = currentPhone.price;
+      inputFields[2].value = currentPhone.screen;
+      inputFields[3].value = currentPhone.backCamera;
+      inputFields[4].value = currentPhone.frontCamera;
+      inputFields[5].value = currentPhone.img;
+      inputFields[6].value = currentPhone.desc;
+      inputFields[7].value = currentPhone.type;
+    })
+    .catch((error) => console.log(error));
+  getEle("btnUpdate").onclick = () => {
+    let inputs = helper.getInputValue();
+    let phone = new Phone(id, ...inputs);
+    update(phone);
+  };
+};
+
+let update = (phone) => {
+  phoneList
+    .updatePhone(phone)
+    .then(() => {
+      renderList();
+      document.querySelector(".close").click();
+      location.href = `#phone${phone.id}`;
+    })
+    .catch((error) => console.log(error));
 };
