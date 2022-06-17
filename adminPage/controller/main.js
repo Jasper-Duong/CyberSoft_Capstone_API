@@ -3,6 +3,10 @@ let getEle = (id) => document.getElementById(id);
 import { Phone } from "../model/phone.js";
 import { PhoneList } from "../model/phoneList.js";
 import { Helper } from "./helper.js";
+import { Validation } from "./../model/validation.js";
+
+let validation = new Validation();
+
 let helper = new Helper();
 let phoneList = new PhoneList();
 
@@ -47,11 +51,21 @@ getEle("btnThemSanPham").onclick = () => {
 getEle("btnAdd").onclick = () => {
   let inputs = helper.getInputValue();
   let phone = new Phone("", ...inputs);
+  console.log(phone);
   phoneList
-    .addPhone(phone)
-    .then(() => {
-      renderList();
-      document.querySelector(".close").click();
+    .getPhone()
+    .then((result) => {
+      console.log(123);
+      if (validation.isValid(result.data, phone)) {
+        phoneList
+          .addPhone(phone)
+          .then(() => {
+            renderList();
+            document.querySelector(".close").click();
+            location.href = `#phone${phone.id}`;
+          })
+          .catch((error) => console.log(error));
+      }
     })
     .catch((error) => console.log(error));
 };
@@ -85,7 +99,14 @@ window.edit = (id) => {
   getEle("btnUpdate").onclick = () => {
     let inputs = helper.getInputValue();
     let phone = new Phone(id, ...inputs);
-    update(phone);
+    phoneList
+      .getPhone()
+      .then((result) => {
+        if (validation.isValid(result.data, phone, true)) {
+          update(phone);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 };
 
