@@ -8,7 +8,8 @@ const getList = () => {
     .getListAPI()
     .then((result) => {
       renderList(result.data);
-      // OptionPhone(result.data);
+      // console.log(result.data);
+      addListproduct(result.data);
     })
     .catch((error) => {
       console.log(error);
@@ -20,10 +21,10 @@ getList();
 const renderList = (data) => {
   // console.log(data);
   let content = "";
-  let id = 0;
+  // let id = 0;
 
   data.forEach((listAPI) => {
-    id += 1;
+    // id += 1;
     content += `
         <div class="card col-3">
             <img
@@ -36,7 +37,7 @@ const renderList = (data) => {
                 <h3 class="card-title">${listAPI.name} - 64GB</h3>
                 <div class="card-text pb-4">
                     <a
-                    href="#demo-${id}"
+                    href="#demo-${listAPI.id}"
                     data-toggle="collapse"
                     role="button"
                     aria-expanded="false"
@@ -44,7 +45,7 @@ const renderList = (data) => {
                     >
                     Thông tin sản phẩm
                     </a>
-                    <p id="demo-${id}" class="collapse">
+                    <p id="demo-${listAPI.id}" class="collapse">
                     Camera sau: ${listAPI.backCamera} <br />
                     Camera trước: ${listAPI.frontCamera} <br />
                     Màn hình: ${listAPI.screen} <br />
@@ -52,7 +53,7 @@ const renderList = (data) => {
                     </p>
                 </div>
                 <span>$-${listAPI.price} - </span>
-                <a href="" class="btn btn-success">ADD</a>
+                <button  class="btn btn-success">ADD</button>
             </div>
         </div>
         `;
@@ -63,14 +64,14 @@ const renderList = (data) => {
 // option Iphone
 const typeIphone = () => {
   let content = "";
-  let id = 0;
+  // let id = 0;
   service
     .getListAPI()
     .then((result) => {
       arrOpt = result.data;
       arrOpt.forEach((phone) => {
         if (phone.type === "Iphone") {
-          id += 1;
+          // id += 1;
           content += `
         <div class="card col-3">
             <img
@@ -83,7 +84,7 @@ const typeIphone = () => {
                 <h3 class="card-title">${phone.name} - 64GB</h3>
                 <div class="card-text pb-4">
                     <a
-                    href="#demo-${id}"
+                    href="#demo-${phone.id}"
                     data-toggle="collapse"
                     role="button"
                     aria-expanded="false"
@@ -91,7 +92,7 @@ const typeIphone = () => {
                     >
                     Thông tin sản phẩm
                     </a>
-                    <p id="demo-${id}" class="collapse">
+                    <p id="demo-${phone.id}" class="collapse">
                     Camera sau: ${phone.backCamera} <br />
                     Camera trước: ${phone.frontCamera} <br />
                     Màn hình: ${phone.screen} <br />
@@ -99,7 +100,7 @@ const typeIphone = () => {
                     </p>
                 </div>
                 <span>$-${phone.price} - </span>
-                <a href="" class="btn btn-success">ADD</a>
+                <button  class="btn btn-success">ADD</button>
             </div>
         </div>
         `;
@@ -113,14 +114,14 @@ const typeIphone = () => {
 };
 const typeSamsung = () => {
   let content = "";
-  let id = 0;
+  // let id = 0;
   service
     .getListAPI()
     .then((result) => {
       arrOpt = result.data;
       arrOpt.forEach((phone) => {
         if (phone.type === "Samsung") {
-          id += 1;
+          // id += 1;
           content += `
         <div class="card col-3">
             <img
@@ -133,7 +134,7 @@ const typeSamsung = () => {
                 <h3 class="card-title">${phone.name} - 64GB</h3>
                 <div class="card-text pb-4">
                     <a
-                    href="#demo-${id}"
+                    href="#demo-${phone.id}"
                     data-toggle="collapse"
                     role="button"
                     aria-expanded="false"
@@ -141,7 +142,7 @@ const typeSamsung = () => {
                     >
                     Thông tin sản phẩm
                     </a>
-                    <p id="demo-${id}" class="collapse">
+                    <p id="demo-${phone.id}" class="collapse">
                     Camera sau: ${phone.backCamera} <br />
                     Camera trước: ${phone.frontCamera} <br />
                     Màn hình: ${phone.screen} <br />
@@ -149,7 +150,7 @@ const typeSamsung = () => {
                     </p>
                 </div>
                 <span>$-${phone.price} - </span>
-                <a href="" class="btn btn-success">ADD</a>
+                <button  class="btn btn-success">ADD</button>
             </div>
         </div>
         `;
@@ -163,13 +164,13 @@ const typeSamsung = () => {
 };
 const typeAll = () => {
   let content = "";
-  let id = 0;
+  // let id = 0;
   service
     .getListAPI()
     .then((result) => {
       arrOpt = result.data;
       arrOpt.forEach((phone) => {
-        id += 1;
+        // id += 1;
         content += `
         <div class="card col-3">
             <img
@@ -182,7 +183,7 @@ const typeAll = () => {
                 <h3 class="card-title">${phone.name} - 64GB</h3>
                 <div class="card-text pb-4">
                     <a
-                    href="#demo-${id}"
+                    href="#demo-${phone.id}"
                     data-toggle="collapse"
                     role="button"
                     aria-expanded="false"
@@ -190,7 +191,7 @@ const typeAll = () => {
                     >
                     Thông tin sản phẩm
                     </a>
-                    <p id="demo-${id}" class="collapse">
+                    <p id="demo-${phone.id}" class="collapse">
                     Camera sau: ${phone.backCamera} <br />
                     Camera trước: ${phone.frontCamera} <br />
                     Màn hình: ${phone.screen} <br />
@@ -198,7 +199,7 @@ const typeAll = () => {
                     </p>
                 </div>
                 <span>$-${phone.price} - </span>
-                <a href="" class="btn btn-success">ADD</a>
+                <button  class="btn btn-success">ADD</button>
             </div>
         </div>
         `;
@@ -211,7 +212,6 @@ const typeAll = () => {
 };
 
 // select option
-
 const OnChangePhone = (selectOpt) => {
   let opPhone = selectOpt.value;
   let opPhoneStr = opPhone.toString();
@@ -225,3 +225,23 @@ const OnChangePhone = (selectOpt) => {
     typeAll();
   }
 };
+//
+let arrProduct = [];
+const addListproduct = (data, uantity) => {
+  let quantity = 1;
+  data.forEach((ele) => {
+    let product = new Product(ele.id, ele.name, ele.price, ele.img);
+    let quanPro = new Quantity(quantity);
+    cartpro = new CartProduct(product, quanPro);
+    arrProduct.push(cartpro);
+  });
+};
+// console.log(arrProduct);
+
+let btnADD = document.getElementsByClassName("btn-success");
+for (let i = 0; i < btnADD.length; i++) {
+  i++;
+  btnADD[i].onclick = function () {
+    console.log(true);
+  };
+}
