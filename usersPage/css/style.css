@@ -56,6 +56,7 @@
   margin-bottom: 6.25em;
 }
 
+
 /* overlay */
 .nav_overlay {
   display: none;
@@ -168,13 +169,7 @@
   width: 1.875em;
   fill: red;
 }
-#itemProduct {
-  position: fixed;
-  top: 6.25em;
-  bottom: 6.25em;
-  right: 1.25em;
-  overflow-x:hidden;
-}
+
 /* animation */
 @keyframes fadeIn {
   0% {
