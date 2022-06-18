@@ -30,11 +30,12 @@ body .container .row {
   display: inline-block;
   margin: 0 auto;
   color: white;
-  padding: 100px 50px;
+  padding: 105px 50px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s;
+  width: 280px;
 }
 
 .wrapper:hover {
