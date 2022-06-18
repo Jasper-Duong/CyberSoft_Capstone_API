@@ -1,13 +1,16 @@
-function Product(_id, _name, _price, _img) {
-  this.id = _id;
-  this.name = _name;
-  this.price = _price;
-  this.img = _img;
+export class Product {
+  constructor(_id, _name, _price, _backCamera, _img, _desc, _type) {
+    this.id = _id;
+    this.name = _name;
+    this.price = _price;
+    this.backCamera = _backCamera;
+    this.frontCamera = _frontCamera;
+    this.img = _img;
+    this.desc = _desc;
+    this.type = _type;
+  }
 }
-function Quantity(_proQuantity) {
-  this.proQuantity = _proQuantity;
-}
-function CartProduct(_product, _quantity) {
-  this.product = _product;
-  this.quantity = _quantity;
-}
+// function Quantity(_proQuantity) {
+//   this.proQuantity = _proQuantity;
+// }
+
