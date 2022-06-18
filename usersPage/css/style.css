@@ -55,19 +55,7 @@
   padding-top: 3.125em;
   margin-bottom: 6.25em;
 }
-.middle-container {
-  padding: 0 6.25em;
-}
-.middle-container .row {
-  flex-wrap: nowrap;
-}
-.middle-container .row .card {
-  margin: 0.3125em;
-  border-radius: 0.625em;
-}
-.middle-container .row .card img {
-  margin: 0 auto;
-}
+
 
 /* overlay */
 .nav_overlay {
