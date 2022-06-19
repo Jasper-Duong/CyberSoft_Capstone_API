@@ -105,11 +105,12 @@ let listProductToCart = (listProduct) => {
   return listProduct.map((ele) => {
     let item = cart.filter((cartEle) => ele.id === cartEle.product.id);
     let quantity = 0;
-    const { id, name, price, backCamera, frontCamera, img, desc, type } = ele;
+    const { id, name, price, screen, backCamera, frontCamera, img, desc, type } = ele;
     const product = new Product(
       id,
       name,
       price,
+      screen,
       backCamera,
       frontCamera,
       img,
@@ -225,13 +226,14 @@ let getLocalStorage = (container, key) => {
   container = str ? JSON.parse(str) : [];
   if (container.length > 0) {
     container = container.map((ele) => {
-      const { id, name, price, backCamera, frontCamera, img, desc, type } =
+      const { id, name, price, screen, backCamera, frontCamera, img, desc, type } =
         ele.product;
       const _quantity = ele.quantity;
       const _product = new Product(
         id,
         name,
         price,
+        screen,
         backCamera,
         frontCamera,
         img,
