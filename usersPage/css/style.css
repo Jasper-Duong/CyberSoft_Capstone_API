@@ -56,7 +56,6 @@
   margin-bottom: 6.25em;
 }
 
-
 /* overlay */
 .nav_overlay {
   display: none;
@@ -189,15 +188,20 @@
   bottom: 50px;
   right: 0;
 }
-.final__button{
+.final__button {
   display: flex;
   margin-left: 30px;
 }
 .final strong {
-  color:white;
+  color: white;
   font-size: 28px;
 }
 #itemProduct {
   overflow-y: scroll;
   height: 400px;
+}
+
+.add-btn,
+.minus-btn {
+  cursor: pointer;
 }

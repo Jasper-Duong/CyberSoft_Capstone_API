@@ -17,9 +17,15 @@ export class Validation {
     this.handleError(!result, errorDivId, message);
     return result;
   }
-  isUnique(arr, field, errorDivId, message, isUpdate) {
+  isUnique(arr, field, errorDivId, message, isUpdate, objId) {
     let result = arr.filter((ele) => ele.name === field);
-    result = !isUpdate ? result.length < 1 : result.length <= 1;
+    if (result.length > 1) {
+      result = false;
+    } else if (result.length === 1) {
+      result = result[0].id === objId;
+    } else {
+      result = true;
+    }
     this.handleError(!result, errorDivId, message);
     return result;
   }
@@ -34,10 +40,10 @@ export class Validation {
       getEle(divId).innerHTML = message;
     } else {
       getEle(divId).style.display = "none";
-      getEle(divId).innerHTML = message;
+      getEle(divId).innerHTML = "";
     }
   }
-  isValid(arr, obj, isUpdate=false) {
+  isValid(arr, obj, isUpdate = false) {
     console.log("Validating!");
     let errorDivId = this.getErroDiv();
     let inputFields = helper.getInputEle();
@@ -54,7 +60,8 @@ export class Validation {
         obj.name,
         errorDivId[0],
         "(*) Tên Sản Phẩm đã tồn tại",
-        isUpdate
+        isUpdate,
+        obj.id
       );
     //price
     valid &=
