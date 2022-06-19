@@ -55,8 +55,8 @@ getEle("btnAdd").onclick = () => {
   phoneList
     .getPhone()
     .then((result) => {
-      console.log(123);
       if (validation.isValid(result.data, phone)) {
+        console.log('Valid -> Adding Phone');
         phoneList
           .addPhone(phone)
           .then(() => {
@@ -103,6 +103,7 @@ window.edit = (id) => {
       .getPhone()
       .then((result) => {
         if (validation.isValid(result.data, phone, true)) {
+        console.log('Valid -> Updating Phone');
           update(phone);
         }
       })
