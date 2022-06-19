@@ -30,7 +30,7 @@ export class Validation {
     return result;
   }
   isMatch(field, format, errorDivId, message) {
-    let result = field.match(format);
+    let result = field.match(format) !== null;
     this.handleError(!result, errorDivId, message);
     return result;
   }
