@@ -205,3 +205,6 @@
 .minus-btn {
   cursor: pointer;
 }
+.descText {
+  font-weight: bold;
+}

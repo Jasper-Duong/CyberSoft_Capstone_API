@@ -42,10 +42,10 @@ const renderList = (data) => {
                   Thông tin sản phẩm
                   </a>
                   <p id="demo-${ele.product.id}" class="collapse">
-                  Camera sau: ${ele.product.backCamera} <br />
-                  Camera trước: ${ele.product.frontCamera} <br />
-                  Màn hình: ${ele.product.screen} <br />
-                  Là một sản phẩm có "${ele.product.desc}"
+                  <span class="descText">Camera sau:</span> ${ele.product.backCamera} <br />
+                  <span class="descText">Camera trước: </span>${ele.product.frontCamera} <br />
+                  <span class="descText">Màn hình: </span>${ele.product.screen} <br />
+                  <span class="descText">Là một sản phẩm có </span>${ele.product.desc}
                   </p>
               </div>
               <div class="d-flex justify-content-between">
